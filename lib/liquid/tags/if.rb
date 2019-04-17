@@ -37,15 +37,16 @@ module Liquid
       end
     end
 
-    def render(context)
+    def render(context, output)
       context.stack do
         @blocks.each do |block|
           if block.evaluate(context)
-            return block.attachment.render(context)
+            return block.attachment.render(context, output)
           end
         end
-        ''.freeze
       end
+
+      output
     end
 
     private
