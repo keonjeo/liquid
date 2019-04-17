@@ -110,7 +110,7 @@ module Liquid
     end
 
     def check_resources(context, output)
-      context.resource_limits.render_length = output.length
+      context.resource_limits.render_length = output.bytesize
       return unless context.resource_limits.reached?
       raise MemoryError.new("Memory limits exceeded".freeze)
     end
