@@ -5,6 +5,8 @@ end
 
 gemspec
 
+gem 'byebug'
+gem 'memory_profiler'
 gem 'stackprof', platforms: :mri
 
 group :benchmark, :test do
